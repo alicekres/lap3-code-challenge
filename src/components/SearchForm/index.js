@@ -4,16 +4,16 @@ import React, { useState, useEffect } from 'react';
 
 function SearchForm({ getResult }) {
 
-    const [ location, setLocation ] = useState("")
+    const [ username, setUsername ] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault;
-        getResult(location);
+        getResult(username);
     }
 
     const updateInput = (e) => {
         const input = e.target.value;
-        setLocation(input)
+        setUsername(input)
     }
 
     useEffect(() => {
