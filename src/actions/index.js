@@ -27,7 +27,7 @@ export const fetchGitUser = async searchTerm => {
 
         const { data } = await axios.get(`https://api.github.com/users/${searchTerm}`, opts);
         console.log(data)
-        return data.data;
+        return data.login;
     } catch (err) {
         // if (data.status === 404) { throw Error('That\'s not a valid username!')}
     }
