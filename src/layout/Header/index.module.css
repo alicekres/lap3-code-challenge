@@ -1,0 +1,17 @@
+input.input {
+    background: #212529;
+}
+
+input.input:active {
+    background: #212529;
+}
+
+a.a {
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+a.a:hover {
+    color: rgb(208, 207, 207);
+}
