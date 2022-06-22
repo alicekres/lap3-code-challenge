@@ -1,18 +1,13 @@
 import React from 'react';
 import './style.css';
 
+import SearchForm from '../../components/SearchForm';
 
 export const Home = () => {
-    return(
-        
+    return (
         <div className="App">
-        
-                <ul> Repos </ul>
-                
+            <ul> Repos </ul>
+            <SearchForm />
         </div>
-            
-            
-        
-    
-    )
-}
+    );
+};
