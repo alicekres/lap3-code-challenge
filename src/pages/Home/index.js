@@ -5,8 +5,6 @@ import { getResult } from '../../actions';
 
 import './style.css';
 
-import SearchForm from '../../components/SearchForm';
-
 export const Home = () => {
     const result = useSelector((state) => state.result);
     const username = useSelector((state) => state.username);
