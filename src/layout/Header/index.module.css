@@ -15,3 +15,11 @@ a.a {
 a.a:hover {
     color: rgb(208, 207, 207);
 }
+
+a.a:active {
+    color: rgb(208, 207, 207);
+}
+
+.image {
+    margin: 0px 30px 0px 10px;
+}
