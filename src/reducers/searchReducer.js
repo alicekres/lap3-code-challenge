@@ -1,4 +1,4 @@
-const initState = { username: "", result: "" };
+const initState = { username: "", result: { repos: "" }, loading: true };
 
 export const searchReducer = (state=initState, action) => {
     switch(action.type){
