@@ -27,19 +27,20 @@ export const fetchGitUser = async searchTerm => {
 
         const { data } = await axios.get(`https://api.github.com/users/${searchTerm}`, opts);
         console.log(data)
-        return data.login;
+        return data.data;
     } catch (err) {
         // if (data.status === 404) { throw Error('That\'s not a valid username!')}
     }
 }
 
-export const fetchGitRepo = async ([user]) => {
-    // try {
-    //     const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`);
-    //     return data.repos;
-    // } catch (err) {
-    //     throw new Error(err.message)
-    // }
+export const fetchGitRepo = async searchTerm => {
+    try {
+        let opts = { headers: { 'Accept': 'application/json' } }
+        const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`, opts);
+        return data.public_repos;
+    } catch (err) {
+        throw new Error(err.message)
+    }
 }
 
 

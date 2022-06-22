@@ -19,6 +19,7 @@ export const Home = () => {
     // const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
 
     const data = useSelector(state => state.username)
+    
 
     return(
         
@@ -27,6 +28,8 @@ export const Home = () => {
             <SearchForm getResult={search}/>
 
             <h1>{data}</h1>
+
+    
             
             {/* { error ? <p role="alert">Oops there's been an error! {error}</p> : (renderResult() )}    */}
             
