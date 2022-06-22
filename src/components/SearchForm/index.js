@@ -7,7 +7,8 @@ function SearchForm({ getResult }) {
     const [ username, setUsername ] = useState("")
 
     const handleSubmit = (e) => {
-        e.preventDefault;
+        e.preventDefault()
+        console.log(username)
         getResult(username);
     }
 
@@ -16,15 +17,15 @@ function SearchForm({ getResult }) {
         setUsername(input)
     }
 
-    useEffect(() => {
-        getResult("")
-    }, [])
+    // useEffect(() => {
+    //     getResult("GMillerMc")
+    // }, [])
     
     
     return (
         <form aria-label='form' onSubmit={handleSubmit}>
-            <label htmlFor='location'>Location</label>
-            <input id='location' type="text" value={location} onChange={updateInput} />
+            <label htmlFor='username'>Username</label>
+            <input id='username' type="text" value={username} onChange={updateInput} />
             <input type="submit" 
             value={"Search"} />
             

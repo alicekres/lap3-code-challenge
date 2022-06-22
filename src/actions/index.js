@@ -22,21 +22,24 @@ export const getResult = searchTerm => {
 };
 
 export const fetchGitUser = async searchTerm => {
-    try {
-        const { data } = await axios.get(`https://api.github.com/users/${searchTerm}`);
-        return data.user;
+    try { console.log(searchTerm)
+        let opts = { headers: { 'Accept': 'application/json' } }
+
+        const { data } = await axios.get(`https://api.github.com/users/${searchTerm}`, opts);
+        console.log(data)
+        return data.login;
     } catch (err) {
-        if (data.status === 404) { throw Error('That\'s not a valid username!')}
+        // if (data.status === 404) { throw Error('That\'s not a valid username!')}
     }
 }
 
 export const fetchGitRepo = async ([user]) => {
-    try {
-        const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`);
-        return data.repos;
-    } catch (err) {
-        throw new Error(err.message)
-    }
+    // try {
+    //     const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`);
+    //     return data.repos;
+    // } catch (err) {
+    //     throw new Error(err.message)
+    // }
 }
 
 
