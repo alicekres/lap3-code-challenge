@@ -33,13 +33,14 @@ export const fetchGitUser = async searchTerm => {
     }
 }
 
-export const fetchGitRepo = async ([user]) => {
-    // try {
-    //     const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`);
-    //     return data.repos;
-    // } catch (err) {
-    //     throw new Error(err.message)
-    // }
+export const fetchGitRepo = async searchTerm => {
+    try {
+        let opts = { headers: { 'Accept': 'application/json' } }
+        const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`, opts);
+        return data.public_repos;
+    } catch (err) {
+        throw new Error(err.message)
+    }
 }
 
 

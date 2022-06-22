@@ -17,13 +17,24 @@ export const Home = () => {
 
     // const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
 
+<<<<<<< HEAD
     const data = useSelector((state) => state.username);
+=======
+    const data = useSelector(state => state.username)
+    
+>>>>>>> main
 
     return (
         <div className="App">
             Who do you want to search?
             <SearchForm getResult={search} />
             <h1>{data}</h1>
+<<<<<<< HEAD
+=======
+
+    
+            
+>>>>>>> main
             {/* { error ? <p role="alert">Oops there's been an error! {error}</p> : (renderResult() )}    */}
         </div>
     );
