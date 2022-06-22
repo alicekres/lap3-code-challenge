@@ -4,11 +4,14 @@ import './style.css';
 
 export const Home = () => {
     return(
-        <>
-        <div>
-        <h1>Github</h1>
         
-        </div>
-        </>
+        <div className="App">
+        
+                <ul> Repos </ul>
+                </div>
+            
+            
+        
+       
     )
 }
