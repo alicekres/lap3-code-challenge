@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchForm, Result } from '../../components';
-import { getResult } from '../../actions';
+import { SearchForm, Result } from '../../components/';
+import { getResult } from '../../actions/index';
 
 import './style.css';
 
