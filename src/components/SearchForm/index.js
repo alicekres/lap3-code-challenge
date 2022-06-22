@@ -5,9 +5,9 @@ function SearchForm({ getResult }) {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault;
-        setSearchTerm(username);
-        setUsername('');
+        e.preventDefault();
+        console.log(username);
+        getResult(username);
     };
 
     const updateInput = (e) => {
@@ -15,12 +15,12 @@ function SearchForm({ getResult }) {
         setUsername(input);
     };
 
-    useEffect(() => {
-        getResult(searchTerm);
-    }, [searchTerm]);
+    // useEffect(() => {
+    //     getResult("GMillerMc")
+    // }, [])
 
     return (
-        <form role="form" onSubmit={handleSubmit}>
+        <form aria-label="form" onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
             <input
                 id="username"

@@ -15,19 +15,16 @@ export const Home = () => {
 
     const search = (searchTerm) => dispatch(getResult(searchTerm));
 
-    const renderResult = () =>
-        loading ? <p>Loading . . .</p> : <Result result={result} />;
+    // const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
+
+    const data = useSelector((state) => state.username);
 
     return (
         <div className="App">
-            Where do you want to search?
+            Who do you want to search?
             <SearchForm getResult={search} />
-            <h1>{username}</h1>
-            {error ? (
-                <p role="alert">Oops there's been an error! {error}</p>
-            ) : (
-                renderResult()
-            )}
+            <h1>{data}</h1>
+            {/* { error ? <p role="alert">Oops there's been an error! {error}</p> : (renderResult() )}    */}
         </div>
     );
 };
