@@ -8,10 +8,11 @@ export const Home = () => {
         <div className="App">
         
                 <ul> Repos </ul>
-                </div>
+                
+        </div>
             
             
         
-       
+    
     )
 }
