@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchForm, Result } from '../../components/';
+import { SearchForm } from '../../components/';
 import { fetchGitRepo } from '../../actions/index';
 
 import './style.css';
@@ -14,10 +14,6 @@ export const Home = () => {
     const dispatch = useDispatch();
 
     const search = (searchTerm) => dispatch(fetchGitRepo(searchTerm));
-
-    // const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
-
-    const data = useSelector((state) => state.repos);
 
     const renderRepos = theRepos.map((repo) => (
         <RepoCard key={repo.id} repo={repo} />

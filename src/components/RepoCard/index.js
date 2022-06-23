@@ -29,7 +29,7 @@ const RepoCard = ({ repo }) => {
                     {name}{' '}
                 </a>
                 <p className={styles.description}>{description}</p>
-                <p>Created on: {created_at} </p>
+                <p className={styles.date}>Created on: {created_at} </p>
             </div>
             <a
                 href={`https://github.com/${owner.login}/${name}/stargazers`}
