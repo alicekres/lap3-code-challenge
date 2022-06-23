@@ -33,7 +33,7 @@ function SearchForm({ fetchGitRepo }) {
                 placeholder="Find a repository..."
                 className={styles.input}
             />
-            <input type="submit" value={'Search'} />
+            <input type="submit" value={'Search'} className={styles.button} />
         </form>
     );
 }
