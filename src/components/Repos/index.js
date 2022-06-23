@@ -6,7 +6,6 @@ import RepoCard from '../RepoCard';
 function Repos() {
     const loading = useSelector((state) => state.loading);
     const theRepos = useSelector((state) => state.repos);
-    const error = useSelector((state) => state.error);
 
     const renderRepos = theRepos.map((repo) => (
         <RepoCard key={repo.id} repo={repo} />
