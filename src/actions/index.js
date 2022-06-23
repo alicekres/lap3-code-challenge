@@ -1,48 +1,21 @@
 import axios from 'axios';
 
-export const loading = username => ({ type: 'LOADING', payload: username});
-
-export const loadResult = ({ results: { repos } }) => ({
-    type: 'LOAD_RESULT',
-    payload: { repos }
-});
-
-export const getResult = searchTerm => {
-    return async dispatch => {
-        dispatch(loading(searchTerm));
+export const fetchGitRepo = (searchTerm) => {
+    return async (dispatch) => {
         try {
-            const gitUser = await fetchGitUser(searchTerm)
-            const gitRepo = await fetchGitRepo(gitUser)
-            dispatch(loadResult(gitRepo))
+            const { data } = await axios.get(
+                `https://api.github.com/users/${searchTerm}/repos`
+            );
+
+            dispatch({
+                type: 'LOAD_REPOS',
+                payload: data,
+            });
         } catch (err) {
-            console.warn(err.message);
-            dispatch({ type: 'SET_ERROR', payload: err.message })
-        };
+            dispatch({
+                type: 'SET_ERROR',
+                payload: err,
+            });
+        }
     };
 };
-
-export const fetchGitUser = async searchTerm => {
-    try { console.log(searchTerm)
-        let opts = { headers: { 'Accept': 'application/json' } }
-
-        const { data } = await axios.get(`https://api.github.com/users/${searchTerm}`, opts);
-        console.log(data)
-        return data.login;
-    } catch (err) {
-        // if (data.status === 404) { throw Error('That\'s not a valid username!')}
-    }
-}
-
-export const fetchGitRepo = async searchTerm => {
-    try {
-        let opts = { headers: { 'Accept': 'application/json' } }
-        const { data } = await axios.get( `https://api.github.com/users/${searchTerm}/repos`, opts);
-        return data.public_repos;
-    } catch (err) {
-        throw new Error(err.message)
-    }
-}
-
-
-
-
