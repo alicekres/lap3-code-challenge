@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SearchForm } from '../../components/';
 import { fetchGitRepo } from '../../actions/index';
 
@@ -8,6 +8,7 @@ import Repos from '../../components/Repos';
 
 const Home = () => {
     const dispatch = useDispatch();
+    const error = useSelector((state) => state.error);
 
     const search = (searchTerm) => dispatch(fetchGitRepo(searchTerm));
 
@@ -18,7 +19,17 @@ const Home = () => {
                 <p>Who do you want to search?</p>
             </div>
             <SearchForm fetchGitRepo={search} />
-            <Repos />
+            {error ? (
+                <h3>
+                    <p>
+                        Request to find a given GitHub user's repositories
+                        failed!
+                    </p>
+                    <p>Check the spelling and try again!</p>
+                </h3>
+            ) : (
+                <Repos />
+            )}
         </div>
     );
 };
