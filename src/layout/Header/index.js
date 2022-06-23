@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 import styles from './index.module.css';
 import githubPic from '../../assets/images/github.png';
@@ -10,14 +11,14 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container-fluid">
-                <a href="/">
+                <Link to="/">
                     <img
                         src={githubPic}
                         alt="github logo"
                         width={40}
                         height={40}
                     />
-                </a>
+                </Link>
                 <form className={`d-flex ${styles.form}`} role="search">
                     <label></label>
                     <input
