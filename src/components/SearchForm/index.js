@@ -18,7 +18,11 @@ function SearchForm({ fetchGitRepo }) {
     };
 
     return (
-        <form aria-label="form" onSubmit={handleSubmit} className={styles.form}>
+        <form
+            aria-label="search"
+            onSubmit={handleSubmit}
+            className={styles.form}
+        >
             <label htmlFor="username"></label>
             <AiOutlineSearch className={styles.icon} />
             <input
