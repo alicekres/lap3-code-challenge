@@ -12,7 +12,12 @@ export const searchReducer = (state = initState, action) => {
                 error: false,
             };
         case 'SET_ERROR':
-            return { ...state, error: action.payload, loading: false };
+            return {
+                ...state,
+                error: action.payload,
+                loading: false,
+                repos: [],
+            };
         default:
             return state;
     }

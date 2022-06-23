@@ -14,6 +14,7 @@ export const fetchGitRepo = (searchTerm) => {
                 payload: data,
             });
         } catch (err) {
+            console.warn(err);
             dispatch({
                 type: 'SET_ERROR',
                 payload: err,
