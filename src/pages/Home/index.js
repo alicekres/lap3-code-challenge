@@ -1,30 +1,43 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchForm, Result } from '../../components/';
-import { getResult } from '../../actions/index';
+import { fetchGitRepo } from '../../actions/index';
 
 import './style.css';
+import RepoCard from '../../components/RepoCard';
+import Repos from '../../components/Repos';
 
 export const Home = () => {
-    const result = useSelector((state) => state.result);
-    const username = useSelector((state) => state.username);
     const loading = useSelector((state) => state.loading);
-    const error = useSelector((state) => state.error);
+    const theRepos = useSelector((state) => state.repos);
 
     const dispatch = useDispatch();
 
-    const search = (searchTerm) => dispatch(getResult(searchTerm));
+    const search = (searchTerm) => dispatch(fetchGitRepo(searchTerm));
 
     // const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
 
-    const data = useSelector((state) => state.username);
+    const data = useSelector((state) => state.repos);
+
+    const renderRepos = theRepos.map((repo) => (
+        <RepoCard key={repo.id} repo={repo} />
+    ));
 
     return (
-        <div className="App">
-            Who do you want to search?
-            <SearchForm getResult={search} />
-            <h1>{data}</h1>
-            {/* { error ? <p role="alert">Oops there's been an error! {error}</p> : (renderResult() )}    */}
+        <div className="home">
+            <div className="firstpart">
+                <p>Repositories</p>
+                <p>Who do you want to search?</p>
+            </div>
+            <SearchForm fetchGitRepo={search} />
+            <Repos />
+            {loading ? (
+                <h2>Loading . . .</h2>
+            ) : (
+                <section aria-label="repos" id="repos">
+                    {renderRepos}
+                </section>
+            )}
         </div>
     );
 };
