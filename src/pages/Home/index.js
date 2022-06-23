@@ -6,7 +6,7 @@ import { fetchGitRepo } from '../../actions/index';
 import './style.css';
 import Repos from '../../components/Repos';
 
-export const Home = () => {
+const Home = () => {
     const dispatch = useDispatch();
 
     const search = (searchTerm) => dispatch(fetchGitRepo(searchTerm));
@@ -22,3 +22,5 @@ export const Home = () => {
         </div>
     );
 };
+
+export default Home;

@@ -6,7 +6,6 @@ export const fetchGitRepo = (searchTerm) => {
             const { data } = await axios.get(
                 `https://api.github.com/users/${searchTerm}/repos`
             );
-
             dispatch({
                 type: 'LOAD_REPOS',
                 payload: data,
