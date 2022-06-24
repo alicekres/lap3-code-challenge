@@ -45,22 +45,34 @@ const Header = () => {
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to="/" className={`nav-link ${styles.a}`}>
+                            <Link
+                                to="/navbar"
+                                className={`nav-link ${styles.a}`}
+                            >
                                 Pull Requests
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className={`nav-link ${styles.a}`}>
+                            <Link
+                                to="/navbar"
+                                className={`nav-link ${styles.a}`}
+                            >
                                 Issues
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className={`nav-link ${styles.a}`}>
+                            <Link
+                                to="/navbar"
+                                className={`nav-link ${styles.a}`}
+                            >
                                 Marketplace
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className={`nav-link ${styles.a}`}>
+                            <Link
+                                to="/navbar"
+                                className={`nav-link ${styles.a}`}
+                            >
                                 Explore
                             </Link>
                         </li>
